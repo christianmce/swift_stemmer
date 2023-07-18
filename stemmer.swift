@@ -1,10 +1,21 @@
+// **************************************************************************
+// FPorterStemmer.swift - August 2023
+// Filter for perferming word stemming based on the Porter algorithm
+// Copyright (c) 2023 Christian Mauricio Castillo Estrada (cmce at unach.mx)
+// **************************************************************************
 import UIKit
 
-class ToDoItemManager {
+class Stemmer {
+
+  // offset into b 
+  private var i: Int
+  // offset to end of stemmed word */
+  private var i_end, k, k: Int
+  // unit of size whereby b is increased 
+  private let INC: Int = 50
+                       
   var toDoCount: Int { return toDoItems.count }
   var doneCount: Int { return doneItems.count }
-  
-  private var toDoItems = [ToDoItem]()
   private var doneItems = [ToDoItem]()
   
   // plist related
