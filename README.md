@@ -14,6 +14,6 @@ Porter's stemmer for Swift
    ```
 2. Compile / Run
 
-   `swiftc FileSwift-stemmer.swift`
-   `./FileSwift-stemmer`
-   `or FileSwift-stemmer.exe`
+   `swiftc FileSwift-stemmer.swift
+   ./FileSwift-stemmer
+   or FileSwift-stemmer.exe`
