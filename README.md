@@ -5,19 +5,15 @@ Porter's stemmer for Swift
 
 ## How to use ##
 
-1. Add the dependency 
-
-    ```
-    [dependencies.stem]
-    git = "https://github.com/christianmce/swift_stemmer"
-
-2. Usage
+1. Usage
    ```Swift
    let myword = "running"
    print("running -> \(stemWord(myword))")
    print("flies -> \(stemWord("flies"))")
 
    ```
-3. Compile / Run
+2. Compile / Run
 
-   `swift command`
+   `swiftc FileSwift-stemmer.swift`
+   `./FileSwift-stemmer`
+   `or FileSwift-stemmer.exe`
