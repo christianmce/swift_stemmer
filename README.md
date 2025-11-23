@@ -12,10 +12,10 @@ Porter's stemmer for Swift
     git = "https://github.com/christianmce/swift_stemmer"
 
 2. Usage
-   ```swift
-  let myword = "running"  
-  print("running -> \(stemWord(myword))")
-  print("flies -> \(stemWord("flies"))")
+   ```Swift
+   let myword = "running"
+   print("running -> \(stemWord(myword))")
+   print("flies -> \(stemWord("flies"))")
 
    ```
 3. Compile / Run
