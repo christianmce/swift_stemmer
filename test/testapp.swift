@@ -13,7 +13,7 @@ func testmain() {
     let outputHandle = FileHandle.standardOutput
     
     guard FileManager.default.fileExists(atPath: filePath) else {
-        print("Error: The file '\(fileName)' does'nt exist in \(currentDirectory)")
+        print("Error: The file '\(fileName)' does not exist in this \(currentDirectory)")
         return
     }
     
@@ -30,6 +30,8 @@ func testmain() {
             outputHandle.write(data)
         }
     }
+        
 }
 
+    
 testmain()
