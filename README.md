@@ -5,9 +5,9 @@ Porter's stemmer for Swift
 
 ## How to use ##
 
-1. Add the dependency to your Cargo.toml
+1. Add the dependency 
 
-    ```toml
+    ```
     [dependencies.stem]
     git = "https://github.com/christianmce/swift_stemmer"
 
