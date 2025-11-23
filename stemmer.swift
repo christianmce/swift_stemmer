@@ -1,17 +1,17 @@
-// *******************************************************************************
-// FPorterStemmer.swift - November 2025
-// Filter for perferming word stemming based on the Porter algorithm
-// Copyright (c) 2025 Christian Mauricio Castillo Estrada (cmce at unach.mx)
-// *******************************************************************************
+/// *******************************************************************************
+/// FPorterStemmer.swift - November 2025
+/// Filter for perferming word stemming based on the Porter algorithm
+/// Copyright (c) 2025 Christian Mauricio Castillo Estrada (cmce at unach.mx)
+/// *******************************************************************************
 
-// This is the Porter stemming algorithm, ported to Swift from the version coded up in ANSI C by the author. It may be be regarded
-// as canonical, in that it follows the algorithm presented in Porter, 1980, An algorithm for suffix stripping, Program, Vol. 14,
-// no. 3, pp 130-137, only differing from it at the points maked --DEPARTURE-- below.
-// See also http://www.tartarus.org/~martin/PorterStemmer
-// *******************************************************************************
-// The algorithm as described in the paper could be exactly replicated by adjusting the points of DEPARTURE, but this is barely necessary,
-// because (a) the points of DEPARTURE are definitely improvements, and (b) no encoding of the Porter stemmer I have seen is anything like
-// as exact as this version, even with the points of DEPARTURE!
+/// This is the Porter stemming algorithm, ported to Swift from the version coded up in ANSI C by the author. It may be be regarded
+/// as canonical, in that it follows the algorithm presented in Porter, 1980, An algorithm for suffix stripping, Program, Vol. 14,
+/// no. 3, pp 130-137, only differing from it at the points maked --DEPARTURE-- below.
+/// See also http://www.tartarus.org/~martin/PorterStemmer
+/// *******************************************************************************
+/// The algorithm as described in the paper could be exactly replicated by adjusting the points of DEPARTURE, but this is barely necessary,
+/// because (a) the points of DEPARTURE are definitely improvements, and (b) no encoding of the Porter stemmer I have seen is anything like
+/// as exact as this version, even with the points of DEPARTURE!
 
 
 import Foundation
@@ -56,9 +56,7 @@ class Stemmer {
     }
     
     /// measure() measures the number of consonant sequences in [0, j).
-    /// if c is a consonant sequence and v a vowel sequence, and <..> indicates
-    /// arbitrary presence,
-    ///
+    /// if c is a consonant sequence and v a vowel sequence, and <..> indicates arbitrary presence,    
     ///    <c><v>       gives 0
     ///    <c>vc<v>     gives 1
     ///    <c>vcvc<v>   gives 2
@@ -120,11 +118,8 @@ class Stemmer {
     }
     
     /// cvc(i) is TRUE <=> i-2,i-1,i has the form consonant - vowel - consonant
-    /// and also if the second c is not w,x or y. this is used when trying to
-    /// restore an e at the end of a short word. e.g.
-    ///
-    ///    cav(e), lov(e), hop(e), crim(e), but
-    ///    snow, box, tray.
+    /// and also if the second c is not w,x or y. this is used when trying to restore an e at the end of a short word. e.g.    
+    /// cav(e), lov(e), hop(e), crim(e), but snow, box, tray.    
     private func cvc(_ i: Int) -> Bool {
         guard i >= 2 else { return false }
         guard isConsonant(i) else { return false }
@@ -154,8 +149,7 @@ class Stemmer {
         return false
     }
     
-    /// setTo(s) sets [j,k) to the characters in the string s,
-    /// readjusting k.
+    /// setTo(s) sets [j,k) to the characters in the string s, readjusting k.    
     private func setTo(_ s: String) {
         let sBytes = Array(s.utf8)
         let len = sBytes.count
@@ -173,8 +167,7 @@ class Stemmer {
         }
     }
     
-    /// step1ab() gets rid of plurals and -ed or -ing. e.g.
-    ///
+    /// step1ab() gets rid of plurals and -ed or -ing. e.g.    
     ///     caresses  ->  caress
     ///     ponies    ->  poni
     ///     ties      ->  ti
@@ -365,8 +358,7 @@ class Stemmer {
         }
     }
     
-    /// step5() removes a final -e if measure() > 1, and changes -ll
-    /// to -l if measure() > 1.
+    /// step5() removes a final -e if measure() > 1, and changes -ll to -l if measure() > 1    
     private func step5() {
         j = k
         
