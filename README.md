@@ -11,9 +11,9 @@ Porter's stemmer for Swift
    print("running -> \(stemWord(myword))")
    print("flies -> \(stemWord("flies"))")
 
-   ```
+   
 2. Compile / Run
-
-   `swiftc FileSwift-stemmer.swift
+   ```
+   swiftc FileSwift-stemmer.swift
    ./FileSwift-stemmer
-   or FileSwift-stemmer.exe`
+   or FileSwift-stemmer.exe
