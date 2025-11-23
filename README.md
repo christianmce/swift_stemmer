@@ -19,4 +19,4 @@ Porter's stemmer for Swift
    ```
 3. Compile / Run
 
-   `$ cargo run`
+   `swift command`
