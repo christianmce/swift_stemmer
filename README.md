@@ -16,9 +16,17 @@ Dr Porter explains the stemmer thus:
 1. Usage
    ```Swift
    let myword = "running"
-   print("running -> \(stemWord(myword))")
-   print("flies -> \(stemWord("flies"))")
+   print("running -> \(stem(myword))")
+   print("flies -> \(stem("flies"))")
 
+   
+   let testWords = ["agreed", "disabled", "ponies", "ties", "cats", "meeting", "matting", "mating", "educational", "effectively"]
+   print("\nStemming examples:")
+   for word in testWords {
+      if case .success(let stemmed) = stem(word) {
+         print("\(word) -> \(stemmed)")
+      }
+   }
    
 2. Compile / Run
    ```
