@@ -20,7 +20,7 @@ Dr Porter explains the stemmer thus:
    print("flies -> \(stem("flies"))")
 
    
-   let testWords = ["agreed", "disabled", "ponies", "ties", "cats", "meeting", "matting", "mating", "educational", "effectively"]
+   let testWords = ["agreed", "ponies", "ties", "cats", "meeting", "matting", "effectively"]
    print("\nStemming examples:")
    for word in testWords {
       if case .success(let stemmed) = stem(word) {
@@ -33,3 +33,6 @@ Dr Porter explains the stemmer thus:
    swiftc FileSwift-stemmer.swift
    ./FileSwift-stemmer
    or FileSwift-stemmer.exe
+
+## Results screen ##
+![Results](https://github.com/christianmce/swift_stemmer/blob/main/test/testOutputSwift.png?raw=true)
