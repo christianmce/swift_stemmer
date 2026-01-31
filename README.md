@@ -30,9 +30,9 @@ Dr Porter explains the stemmer thus:
    
 2. Compile / Run
    ```
-   swiftc FileSwift-stemmer.swift
-   ./FileSwift-stemmer
-   or FileSwift-stemmer.exe
+   swiftc swift-stemmer.swift
+   ./swift-stemmer
+   or swift-stemmer.exe
 
 ## Results screen ##
 ![Results](https://github.com/christianmce/swift_stemmer/blob/main/test/testOutputSwift.png?raw=true)
