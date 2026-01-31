@@ -6,32 +6,47 @@
 
 import Foundation
 
-func testmain() {
-    let fileName = "in.txt"    
-    let currentDirectory = FileManager.default.currentDirectoryPath
-    let filePath = "\(currentDirectory)/\(fileName)"
-    let outputHandle = FileHandle.standardOutput
-    
-    guard FileManager.default.fileExists(atPath: filePath) else {
-        print("Error: The file '\(fileName)' does not exist in this \(currentDirectory)")
-        return
-    }
-    
+func testMainCode() {
+// Main Example: I have included Dr Porter's sample input and output text in a test suite (input.txt)
+// Declare the URLs of the input and output files
+    let urlInput = URL(fileURLWithPath: "input.txt")
+    let urlOutput = URL(fileURLWithPath: "outputdata.txt")
+    print("\n Swift Stemmer Output: \n")
+
+    let Buffercapacity = 23700
+    var entryLines: [String] = []
+    var outputLines: [String] = []
+    entryLines.reserveCapacity(Buffercapacity)
+    outputLines.reserveCapacity(Buffercapacity)
+
+    // Read file input.txt ---------------------------------------------------------------
     do {
-        
-        let content = try String(contentsOfFile: filePath, encoding: .utf8)
-        let lines = content.components(separatedBy: .newlines)
-        
-        for (index, line) in lines.enumerated() {    
-       
-        let stemmedWord = stem(line)
-                
-        if let data = (stemmedWord + "\n").data(using: .utf8) {
-            outputHandle.write(data)
+        let contentBody = try String(contentsOf: urlInput, encoding: .utf8)
+        entryLines = contentBody.components(separatedBy: .newlines)        
+        print(" \(entryLines.count) input words were read")
+
+        for rowword in entryLines {
+            if case .success(let stemmed) = stem(rowword) {
+                outputLines.append(stemmed)
+            }      
         }
+        
+    } catch {
+        print("Error reading file: \(error)")        
     }
+    
+    // Write file output  ----------------------------------------------------------------
+    do {
+        let contentBodyOut = outputLines.joined(separator: "\n")
+        try contentBodyOut.write(to: urlOutput, atomically: true, encoding: .utf8)        
+        print("File saved successfully")
+        
+    } catch {
+        print("Error writing to file: \(error)")
+    }
+
         
 }
 
     
-testmain()
+testMainCode()
